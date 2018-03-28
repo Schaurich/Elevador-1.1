@@ -32,6 +32,10 @@ public class Predio {
         this.Elevadores = Elevadores;
     }
 
+    public void addElevadorLista(Elevador e){
+    Elevadores.add(e);
+    }
+        
     public Predio(int totalAndares) {
         this.andares = totalAndares;
         Elevadores = new ArrayList();
