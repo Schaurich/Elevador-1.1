@@ -5,6 +5,7 @@
  */
 package Testes;
 
+import Elevador_Predio.Elevador;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,29 +18,80 @@ import static org.junit.Assert.*;
  * @author kimsc
  */
 public class TesteElevador {
-    
+    private Elevador e;
     public TesteElevador() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
+     @Test
+    public void testeConstrutor() {
+       e = new Elevador(8,15);
+       assertEquals(e.getAndarAtual(),0);
+       assertEquals(e.getAndares(),8);
+       assertEquals(e.getCapacidade(),15);
+       assertEquals(e.getNumPessoas(),0);
+       assertEquals(e.getRota(),2);
     }
     
-    @AfterClass
-    public static void tearDownClass() {
+    
+    @Test
+    public void testeEntrar(){
+    e = new Elevador(8,15);
+    assertEquals(e.entrar(10),true);
     }
     
-    @Before
-    public void setUp() {
+     @Test
+    public void testeEntrarFalse(){
+    e = new Elevador(8,15);
+    assertEquals(e.entrar(16),false);
     }
     
-    @After
-    public void tearDown() {
+    @Test
+    public void testeSairFalse(){
+    e = new Elevador(8,15);
+    assertEquals(e.sair(16),false);
     }
+    
+    @Test
+    public void testeSair(){
+    e = new Elevador(8,15);
+    e.entrar(5);
+    assertEquals(e.sair(4),true);
+    }
+    
+     @Test
+    public void testeSelecionaAndar(){
+    e = new Elevador(8,15);
+    e.selecionarAndar(2);
+    assertEquals(e.getComandos().size(),1);
+    
+    }
+    @Test
+    public void testeSubir(){
+    e = new Elevador(8,15);
+    e.selecionarAndar(2);
+    e.subir(2);
+    assertEquals(e.getAndarAtual(),2);
+    }
+    
+    @Test
+    public void testeDescer(){
+    e = new Elevador(8,15);
+    e.selecionarAndar(2);
+    e.selecionarAndar(4);
+    e.subir(4);
+    e.descer(2);
+    assertEquals(e.getAndarAtual(),2);
+    }
+    
+    @Test
+    public void testeAbrirPorta(){
+      e = new Elevador(8,15);
+      e.entrar(5);
+      e.abrePorta(5, 2);
+      assertEquals(e.getNumPessoas(),8);
+    }
+    
+   
+   
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

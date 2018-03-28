@@ -101,15 +101,15 @@ public class Elevador {
         return distancia;
     }
 
-    public void subir() {
-        int andar = proximoAndar(2);
+    public void subir(int andar) {
         int pos = comandos.indexOf(andar);
+        comandos.remove(pos);
         setAndarAtual(andar);
     }
 
-    public void descer() {
-        int andar = proximoAndar(1);
+    public void descer(int andar) {
         int pos = comandos.indexOf(andar);
+        comandos.remove(pos);
         setAndarAtual(andar);
     }
 
@@ -120,13 +120,16 @@ public class Elevador {
     public void abrePorta(int in, int out) {
         sair(out);
         entrar(in);
-
     }
 
     public void deslocar() {
     }
 
-    public int proximoAndar(int rota) {
+    public void organizaComandos() {
+        Collections.sort(comandos);
+    }
+
+    /*public int proximoAndar() {
         int next = 0;
         organizaComandos();
         if (rota == 2) {
@@ -148,16 +151,7 @@ public class Elevador {
                 return next;
             }
 
-    
-
-    
-
-    
-
-    
-
-    public void organizaComandos() {
-        Collections.sort(comandos);
-    }
-
+        }
+        return next;
+    }*/
 }
