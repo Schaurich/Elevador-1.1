@@ -13,9 +13,24 @@ import java.util.ArrayList;
  */
 public class Predio {
 
-    int andares;
-    String nome;
+    int andares =15;
     ArrayList<Elevador> Elevadores;
+
+    public int getAndares() {
+        return andares;
+    }
+
+    public void setAndares(int andares) {
+        this.andares = andares;
+    }
+
+    public ArrayList<Elevador> getElevadores() {
+        return Elevadores;
+    }
+
+    public void setElevadores(ArrayList<Elevador> Elevadores) {
+        this.Elevadores = Elevadores;
+    }
 
     public Predio(int totalAndares) {
         this.andares = totalAndares;

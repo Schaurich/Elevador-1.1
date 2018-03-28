@@ -6,6 +6,7 @@ package Testes;
  * and open the template in the editor.
  */
 
+import Elevador_Predio.Predio;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,29 +19,25 @@ import static org.junit.Assert.*;
  * @author kimsc
  */
 public class TestePredio {
-    
+    private Predio p;
     public TestePredio() {
     }
+   
     
-    @BeforeClass
-    public static void setUpClass() {
+    @Test
+    public void testeConstrutor(){
+    p = new Predio(15);
+    assertEquals(p.getAndares(),15);
+    
     }
     
-    @AfterClass
-    public static void tearDownClass() {
+      @Test
+    public void testeAddElevador(){
+    p = new Predio(15);
+    p.addElevador(15, 10);
+    assertEquals(p.getElevadores().size(),1);
+    
     }
     
-    @Before
-    public void setUp() {
-    }
     
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

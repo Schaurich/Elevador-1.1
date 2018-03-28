@@ -122,7 +122,16 @@ public class Elevador {
         entrar(in);
     }
 
-    public void deslocar() {
+    public void deslocar(int in, int out, int andar) {
+        abrePorta(in,out);
+        selecionarAndar(andar);
+        if(getAndarAtual()<andar){
+        subir(andar);
+        }else{
+        descer(andar);
+        }
+        
+        
     }
 
     public void organizaComandos() {

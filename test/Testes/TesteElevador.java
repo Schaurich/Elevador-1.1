@@ -91,6 +91,15 @@ public class TesteElevador {
       assertEquals(e.getNumPessoas(),8);
     }
     
+    @Test
+    public void testeDeslocar(){
+      e = new Elevador(8,15);
+      e.entrar(10);
+      e.deslocar(2, 5, 5);
+      assertEquals(e.getAndarAtual(),5);
+      assertEquals(e.getNumPessoas(),7);
+    
+    }
    
    
 
